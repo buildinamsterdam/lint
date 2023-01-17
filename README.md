@@ -63,6 +63,10 @@ This is used to enforce a consistent import order. The following order has been 
 7. `_styles` imports
 8. Internal modules (e.g. `./`)
 
+## Using with Prettier
+
+As you'll notice, this package doesn't contain any custom `.pretterrc.json` config to extend. We recommend not including it, and instead just inheriting the default config (by not creating / changing it).
+
 ## Requests and Contributing
 
 Found an issue? Want a new feature? Get involved! Please contribute using our guideline [here](https://github.com/buildinamsterdam/lint/blob/main/CONTRIBUTING.md).

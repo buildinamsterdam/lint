@@ -1,8 +1,5 @@
 module.exports = {
-  extends: [
-    "./rules/unused-imports.js",
-    "./rules/order.js",
-    "./rules/next.js",
-    "./rules/prettier.js",
-  ].map(require.resolve),
+  extends: ["./rules/base.js", "./rules/next.js", "./rules/prettier.js"].map(
+    require.resolve
+  ),
 };

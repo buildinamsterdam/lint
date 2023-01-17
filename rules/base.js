@@ -1,7 +1,10 @@
 module.exports = {
-  plugins: ["simple-import-sort"],
+  plugins: ["unused-imports", "simple-import-sort"],
 
   rules: {
+    // Turn this on to automatically remove unused imports
+    "unused-imports/no-unused-imports": "error",
+
     // Turn on exports ordering
     "simple-import-sort/exports": "error",
 
