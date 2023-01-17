@@ -1,4 +1,4 @@
-# next-lint
+# lint
 
 [![NPM version][npm-image]][npm-url]
 [![Actions Status][ci-image]][ci-url]
@@ -11,7 +11,7 @@ BiA's base lint config.
 Install this package with `npm`.
 
 ```bash
-npm i @buildinams/next-lint
+npm i @buildinams/lint
 ```
 
 ## Usage
@@ -21,17 +21,17 @@ Create an `.eslintrc.json` file then add:
 ```json
 {
   // "extends": "bia-base"
-  "extends": "./node_modules/next-lint/"
+  "extends": "./node_modules/lint/"
 }
 ```
 
 ## Requests and Contributing
 
-Found an issue? Want a new feature? Get involved! Please contribute using our guideline [here](https://github.com/buildinamsterdam/next-lint/blob/main/CONTRIBUTING.md).
+Found an issue? Want a new feature? Get involved! Please contribute using our guideline [here](https://github.com/buildinamsterdam/lint/blob/main/CONTRIBUTING.md).
 
-[npm-image]: https://img.shields.io/npm/v/@buildinams/next-lint.svg?style=flat-square&logo=react
-[npm-url]: https://npmjs.org/package/@buildinams/next-lint
-[ci-image]: https://github.com/buildinamsterdam/next-lint/actions/workflows/test.yml/badge.svg
-[ci-url]: https://github.com/buildinamsterdam/next-lint/actions
-[npm-downloads-image]: https://img.shields.io/npm/dm/@buildinams/next-lint.svg
-[npm-downloads-url]: https://npmcharts.com/compare/@buildinams/next-lint?minimal=true
+[npm-image]: https://img.shields.io/npm/v/@buildinams/lint.svg?style=flat-square&logo=react
+[npm-url]: https://npmjs.org/package/@buildinams/lint
+[ci-image]: https://github.com/buildinamsterdam/lint/actions/workflows/test.yml/badge.svg
+[ci-url]: https://github.com/buildinamsterdam/lint/actions
+[npm-downloads-image]: https://img.shields.io/npm/dm/@buildinams/lint.svg
+[npm-downloads-url]: https://npmcharts.com/compare/@buildinams/lint?minimal=true

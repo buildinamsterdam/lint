@@ -1,7 +1,7 @@
 module.exports = {
   plugins: ["prettier", "unused-imports", "simple-import-sort"],
 
-  extends: ["plugin:prettier/recommended"], // "next", "next/core-web-vitals",
+  extends: ["plugin:prettier/recommended"],
 
   rules: {
     // Remove unused imports
