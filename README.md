@@ -1,81 +1,37 @@
-# PACKAGE-NAME
+# next-lint
 
 [![NPM version][npm-image]][npm-url]
 [![Actions Status][ci-image]][ci-url]
 [![PR Welcome][npm-downloads-image]][npm-downloads-url]
 
-PACKAGE-DESCRIPTION
-
-## Introduction
-
-Package introduction, couple of paragraphs.
-
-```typescript
-import useHook from "@buildinams/PACKAGE-NAME";
-
-const baz = useHook({
-  foo: "something",
-  bar: "something else",
-});
-```
+BiA's base lint config.
 
 ## Installation
 
 Install this package with `npm`.
 
 ```bash
-npm i @buildinams/PACKAGE-NAME
+npm i @buildinams/next-lint
 ```
 
 ## Usage
 
-Example 1 description.
+Create an `.eslintrc.json` file then add:
 
-```tsx
-import React from 'react';
-import useHook from '@buildinams/PACKAGE-NAME';
-
-const SomeExample = () = {
-  const baz = useHook({
-    foo: "something",
-    bar: "something else",
-  });
-
-  return (
-    <p>{baz}</p>
-  );
+```json
+{
+  // "extends": "bia-base"
+  "extends": "./node_modules/next-lint/"
 }
 ```
 
-## API
-
-### Input
-
-- `foo`: Required - Description of argument.
-- `baz`: Optional - Description of argument.
-
-### Input as a table
-
-| Property | Type   | Required | Notes                    |
-| -------- | ------ | -------- | ------------------------ |
-| **foo**  | string | **Yes**  | Description of argument. |
-| **baz**  | string | No       | Description of argument. |
-
-### Output
-
-- `baz`: Description of output.
-
-## Requirements
-
-This library requires a minimum React version of `18.0.0`.
-
 ## Requests and Contributing
 
-Found an issue? Want a new feature? Get involved! Please contribute using our guideline [here](https://github.com/buildinamsterdam/PACKAGE-NAME/blob/main/CONTRIBUTING.md).
+Found an issue? Want a new feature? Get involved! Please contribute using our guideline [here](https://github.com/buildinamsterdam/next-lint/blob/main/CONTRIBUTING.md).
 
-[npm-image]: https://img.shields.io/npm/v/@buildinams/PACKAGE-NAME.svg?style=flat-square&logo=react
-[npm-url]: https://npmjs.org/package/@buildinams/PACKAGE-NAME
-[ci-image]: https://github.com/buildinamsterdam/PACKAGE-NAME/actions/workflows/test.yml/badge.svg
-[ci-url]: https://github.com/buildinamsterdam/PACKAGE-NAME/actions
-[npm-downloads-image]: https://img.shields.io/npm/dm/@buildinams/PACKAGE-NAME.svg
-[npm-downloads-url]: https://npmcharts.com/compare/@buildinams/PACKAGE-NAME?minimal=true
+[npm-image]: https://img.shields.io/npm/v/@buildinams/next-lint.svg?style=flat-square&logo=react
+[npm-url]: https://npmjs.org/package/@buildinams/next-lint
+[ci-image]: https://github.com/buildinamsterdam/next-lint/actions/workflows/test.yml/badge.svg
+[ci-url]: https://github.com/buildinamsterdam/next-lint/actions
+[npm-downloads-image]: https://img.shields.io/npm/dm/@buildinams/next-lint.svg
+[npm-downloads-url]: https://npmcharts.com/compare/@buildinams/next-lint?minimal=true
