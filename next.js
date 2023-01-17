@@ -1,5 +1,7 @@
 module.exports = {
-  extends: ["./rules/base.js", "./rules/next.js", "./rules/prettier.js"].map(
-    require.resolve
-  ),
+  extends: [
+    "./configs/base.js",
+    "./configs/next.js",
+    "./configs/prettier.js",
+  ].map(require.resolve),
 };

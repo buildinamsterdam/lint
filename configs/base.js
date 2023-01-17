@@ -1,4 +1,10 @@
 module.exports = {
+  // Specific parser options otherwise inheriting configs will not work
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
+
   plugins: ["unused-imports", "simple-import-sort"],
 
   rules: {
@@ -24,5 +30,8 @@ module.exports = {
         ],
       },
     ],
+
+    // Prevent 'forwardRef' etc from erroring
+    "react/display-name": "off",
   },
 };

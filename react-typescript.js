@@ -1,10 +1,10 @@
 module.exports = {
   extends: [
-    "./rules/base.js",
-    "./rules/react.js",
-    "./rules/typescript.js",
+    "./configs/base.js",
+    "./configs/react.js",
+    "./configs/typescript.js",
 
     // TODO(Paulo): Do we need prettier here? Or even on any of the configs?
-    "./rules/prettier.js",
+    "./configs/prettier.js",
   ].map(require.resolve),
 };
