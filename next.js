@@ -4,5 +4,5 @@ module.exports = {
     "./rules/order.js",
     "./rules/next.js",
     "./rules/prettier.js",
-  ],
+  ].map(require.resolve),
 };
