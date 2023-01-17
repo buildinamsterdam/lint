@@ -7,8 +7,9 @@
   "main": "index.js",
   "exports": {
     ".": "./index.js",
-    "./next": "./next.js",
-    "./react-typescript": "./react-typescript.js"
+    "./react": "./react.js",
+    "./react-typescript": "./react-typescript.js",
+    "./next": "./next.js"
   },
   "homepage": "https://github.com/buildinamsterdam/lint#readme",
   "repository": {
