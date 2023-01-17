@@ -42,6 +42,18 @@ To use, create a `.eslintrc.json` and extend the config:
 }
 ```
 
+### @buildinams/lint/react-typescript
+
+This extends base React config with support for TypeScript. We also add additional linting rules [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+
+To use, create a `.eslintrc.json` and extend the config:
+
+```json
+{
+  "extends": "./node_modules/@buildinams/lint/react-typescript"
+}
+```
+
 ## Rules
 
 The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The only exceptions are:
