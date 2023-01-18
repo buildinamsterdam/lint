@@ -15,6 +15,9 @@ module.exports = {
   extends: [
     // Full list: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/configs/recommended.js
     "plugin:react/recommended",
+
+    // For more info: https://www.npmjs.com/package/eslint-plugin-react-hooks
+    "plugin:react-hooks/recommended",
   ],
 
   rules: {
