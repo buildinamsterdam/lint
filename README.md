@@ -16,7 +16,11 @@ npm i -D @buildinams/lint
 
 ## Usage
 
-We export two base ESLint configurations:
+We export three base ESLint configurations for:
+
+- React.js JavaScript (default)
+- Next.js JavaScript (lint/next)
+- React.js TypeScript (lint/react-typescript)
 
 ### @buildinams/lint
 
@@ -44,7 +48,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ### @buildinams/lint/react-typescript
 
-This extends base React config with support for TypeScript. We also add additional linting rules [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+This extends our base React config with support for TypeScript. We also extend additional linting rules from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
 
 To use, create a `.eslintrc.json` and extend the config:
 
@@ -78,6 +82,25 @@ This is used to enforce a consistent import order. The following order has been 
 ## Using with Prettier
 
 As you'll notice, this package doesn't contain any custom `.pretterrc.json` config to extend. We recommend not including it, and instead just inheriting the default config (by not creating / changing it).
+
+## Enabling ESLint on Save in VSCode
+
+To use ESLint on save, you'll need to install the [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension.
+
+To then enable format on save in VScode, open your workspace settings (`Shift-Command-P` and select `Open Workspace Settings (JSON)`), then paste the following into `/.vscode/settings.json`:
+
+```json
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
+## Requirements
+
+This library requires a minimum React version of `17.0.0`.
 
 ## Requests and Contributing
 
