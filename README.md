@@ -100,11 +100,7 @@ To then enable format on save in VScode, open your workspace settings (`Shift-Co
 
 ## Requirements
 
-This library requires a minimum versions for the following:
-
-- ESLint: `8.0.0`
-- Prettier: `2.0.0`
-- React: `17.0.0`
+This library requires a minimum React version of `17.0.0`.
 
 ## Requests and Contributing
 
