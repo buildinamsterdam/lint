@@ -3,7 +3,7 @@ module.exports = {
   // Required to get Next.js to work with ESLint
   parser: "@babel/eslint-parser",
 
-  // For more info: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
+  // Full list: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
   extends: ["next", "next/core-web-vitals"],
 
   rules: {

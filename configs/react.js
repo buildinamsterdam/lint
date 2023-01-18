@@ -13,7 +13,7 @@ module.exports = {
   },
 
   extends: [
-    // For more info: https://github.com/jsx-eslint/eslint-plugin-react#recommended
+    // Full list: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/configs/recommended.js
     "plugin:react/recommended",
   ],
 

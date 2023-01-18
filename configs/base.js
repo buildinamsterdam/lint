@@ -24,5 +24,8 @@ module.exports = {
         ],
       },
     ],
+
+    // Prevent 'console.log(...)' from being committed
+    "no-console": ["error", { allow: ["warn", "error"] }],
   },
 };
