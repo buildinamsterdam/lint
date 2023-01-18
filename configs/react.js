@@ -18,6 +18,9 @@ module.exports = {
 
     // For more info: https://www.npmjs.com/package/eslint-plugin-react-hooks
     "plugin:react-hooks/recommended",
+
+    // Full list: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js
+    "plugin:jsx-a11y/recommended",
   ],
 
   rules: {
