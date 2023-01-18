@@ -30,6 +30,7 @@ module.exports = {
           ["^_components"],
           ["^_styles"],
           ["^\\."],
+          ["^"],
         ],
       },
     ],
