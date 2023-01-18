@@ -21,6 +21,7 @@ We export three base ESLint configurations for:
 - React.js JavaScript (default)
 - Next.js JavaScript (lint/next)
 - React.js TypeScript (lint/react-typescript)
+- Next.js TypeScript (lint/next-typescript)
 
 ### @buildinams/lint
 
@@ -48,13 +49,25 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ### @buildinams/lint/react-typescript
 
-This extends our base React config with support for TypeScript. We also extend additional linting rules from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+This extends our base React config with support parsing / linting support TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
 
 To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
   "extends": "./node_modules/@buildinams/lint/react-typescript"
+}
+```
+
+### @buildinams/lint/next-typescript
+
+This extends our base Next config with support parsing / linting support TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+
+To use, create a `.eslintrc.json` and extend the config:
+
+```json
+{
+  "extends": "./node_modules/@buildinams/lint/next-typescript"
 }
 ```
 
