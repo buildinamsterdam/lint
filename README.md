@@ -25,7 +25,12 @@ We export three base ESLint configurations for:
 
 ### @buildinams/lint
 
-This is our default config for all React projects. It extends `react/recommended`, `prettier/recommended`, and adds a few additional rules to enforce consistency.
+This is our default config for all React projects. It extends:
+
+- `react/recommended`
+- `react-hooks/recommended`
+- `jsx-a11y/recommended`
+- `prettier/recommended`
 
 To use the shared eslint configuration, create an `.eslintrc.json` in your root project directory, and extend the config:
 
@@ -35,21 +40,9 @@ To use the shared eslint configuration, create an `.eslintrc.json` in your root 
 }
 ```
 
-### @buildinams/lint/next
-
-This is our base configuration for all Next.js projects. It features the same config as `@buildinams/lint` par `react/recommended`, and instead replaces it with [Next.js](https://nextjs.org/) specific [rules](https://nextjs.org/docs/basic-features/eslint#eslint-plugin).
-
-To use, create a `.eslintrc.json` and extend the config:
-
-```json
-{
-  "extends": "./node_modules/@buildinams/lint/next"
-}
-```
-
 ### @buildinams/lint/react-typescript
 
-This extends our base React config with support parsing / linting support TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+This extends our base React config with parsing / linting support for TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
 
 To use, create a `.eslintrc.json` and extend the config:
 
@@ -59,9 +52,24 @@ To use, create a `.eslintrc.json` and extend the config:
 }
 ```
 
+### @buildinams/lint/next
+
+This is our base configuration for all Next.js projects. It extends:
+
+- `next`
+- `next/core-web-vitals`
+
+To use, create a `.eslintrc.json` and extend the config:
+
+```json
+{
+  "extends": "./node_modules/@buildinams/lint/next"
+}
+```
+
 ### @buildinams/lint/next-typescript
 
-This extends our base Next config with support parsing / linting support TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+This extends our base Next config with parsing / linting support for TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
 
 To use, create a `.eslintrc.json` and extend the config:
 
@@ -73,7 +81,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ## Rules
 
-The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The only exceptions are:
+The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are:
 
 ### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
 
