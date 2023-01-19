@@ -18,28 +18,6 @@ npm ci
 
 Then implement your changes!
 
-## Testing
-
-All tests are performed using `jest` on Node v16 and v18. For a PR to be considered all these environments need to pass. Testing is automated using GitHu Actions CI.
-
-To run tests locally, run:
-
-```bash
-npm run test
-```
-
-To watch for changes while developing the tests, run:
-
-```bash
-npm run test:watch
-```
-
-To get a coverage report, run:
-
-```bash
-npm run test:coverage
-```
-
 ## Submitting changes
 
 Please open a pull request with a clear overview of what you've changed. When you send a pull request, please make sure you've covered off all the points in the predefined template, and any other relevant information.
