@@ -129,7 +129,7 @@ Found an issue? Want a new feature? Get involved! Please contribute using our gu
 
 [npm-image]: https://img.shields.io/npm/v/@buildinams/lint.svg?style=flat-square&logo=react
 [npm-url]: https://npmjs.org/package/@buildinams/lint
-[ci-image]: https://github.com/buildinamsterdam/lint/actions/workflows/test.yml/badge.svg
+[ci-image]: https://github.com/buildinamsterdam/lint/actions/workflows/lint.yml/badge.svg
 [ci-url]: https://github.com/buildinamsterdam/lint/actions
 [npm-downloads-image]: https://img.shields.io/npm/dm/@buildinams/lint.svg
 [npm-downloads-url]: https://npmcharts.com/compare/@buildinams/lint?minimal=true
