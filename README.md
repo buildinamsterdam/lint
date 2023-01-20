@@ -95,7 +95,7 @@ This is used to enforce a consistent import order. The following order has been 
 2. Absolute imports (supports prefix of `_` and `~` e.g. `public/`, `_components` and `~/contexts`)
 3. Relative imports (e.g. `../` and `./`)
 
-**Note**: The biggest thing we enforce here is the use of `_` for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between absolute and relative imports.
+**Note**: The biggest thing we enforce here is the use of prefixes (either `_` or `~`) for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between the different modules when enforcing the import order.
 
 ## Using With Prettier
 
