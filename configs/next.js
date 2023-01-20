@@ -9,5 +9,20 @@ module.exports = {
   rules: {
     // Prevent 'forwardRef' from erroring
     "react/display-name": "off",
+
+    // Turn on imports ordering with custom groups
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [
+          // Match 'react', 'next' and all imports that don't match the others
+          ["^react", "^next", "^[^_./]"],
+          // Match 'public' and all imports that begin with '_'
+          ["^public/", "^_"],
+          // Match all relative imports that begin with '.'
+          ["^\\."],
+        ],
+      },
+    ],
   },
 };
