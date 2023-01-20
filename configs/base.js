@@ -20,19 +20,7 @@ module.exports = {
     // Turn on imports ordering with custom groups
     "simple-import-sort/imports": [
       "error",
-      {
-        groups: [
-          ["^react", "^@?\\w"],
-          ["^_server"],
-          ["^_utils"],
-          ["^_contexts"],
-          ["^_hooks"],
-          ["^_components"],
-          ["^_styles"],
-          ["^\\."],
-          ["^"],
-        ],
-      },
+      { groups: [["^react", "^[^_./]"], ["^public/", "^_"], ["^\\."]] },
     ],
 
     // Prevent 'console.log(...)' from being committed
