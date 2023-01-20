@@ -15,8 +15,8 @@ module.exports = {
       "error",
       {
         groups: [
-          // Match 'react', 'next' and all imports that don't match the others
-          ["^react", "^next", "^[^_./]"],
+          // Match 'react', 'next' and external imports
+          ["^react", "^next", "^@?\\w"],
           // Match 'public' and all absolute imports that begin with '_' or '~'
           ["^public", "[_~].*"],
           // Match all relative imports that begin with '.'
