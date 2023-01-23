@@ -92,15 +92,12 @@ This is used to enforce that all imports are used in the file. This is useful to
 This is used to enforce a consistent import order. The following order has been defined:
 
 1. External modules (e.g. `react`, `next` and `@buildinams/`)
-2. `_server` imports
-3. `_utils` imports
-4. `_contexts` imports
-5. `_hooks` imports
-6. `_components` imports
-7. `_styles` imports
-8. Internal modules (e.g. `./`)
+2. Absolute imports (supports prefix of `_` and `~` e.g. `public/`, `_components` and `~/contexts`)
+3. Relative imports (e.g. `../` and `./`)
 
-## Using with Prettier
+**Note**: The biggest thing we enforce here is the use of prefixes (either `_` or `~`) for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between the different modules when enforcing the import order.
+
+## Using With Prettier
 
 As you'll notice, this package doesn't contain any custom `.pretterrc.json` config to extend. We recommend not including it, and instead just inheriting the default config (by not creating / changing it).
 

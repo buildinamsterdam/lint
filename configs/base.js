@@ -17,24 +17,6 @@ module.exports = {
     // Turn on exports ordering
     "simple-import-sort/exports": "error",
 
-    // Turn on imports ordering with custom groups
-    "simple-import-sort/imports": [
-      "error",
-      {
-        groups: [
-          ["^react", "^@?\\w"],
-          ["^_server"],
-          ["^_utils"],
-          ["^_contexts"],
-          ["^_hooks"],
-          ["^_components"],
-          ["^_styles"],
-          ["^\\."],
-          ["^"],
-        ],
-      },
-    ],
-
     // Prevent 'console.log(...)' from being committed
     "no-console": ["error", { allow: ["warn", "error"] }],
 

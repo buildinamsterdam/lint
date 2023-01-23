@@ -29,5 +29,20 @@ module.exports = {
 
     // Suppress missing 'import React' in files error
     "react/react-in-jsx-scope": "off",
+
+    // Turn on imports ordering with custom groups
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [
+          // Match 'react' and external imports
+          ["^react", "^@?\\w"],
+          // Match 'public' and all absolute imports that begin with '_' or '~'
+          ["^public", "[_~].*"],
+          // Match all relative imports that begin with '.'
+          ["^\\."],
+        ],
+      },
+    ],
   },
 };
