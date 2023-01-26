@@ -81,11 +81,11 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ## Rules
 
-The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are:
+The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to imports. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way.
 
 ### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
 
-This is used to enforce that all imports are used in the file. This is useful to prevent unused imports from being committed to the repo.
+This is used to enforce that all imports are used in the file. This is used to prevent unused imports from being committed to the repo.
 
 ### [eslint-plugin-simple-import-sort](https://www.npmjs.com/package/eslint-plugin-simple-import-sort)
 
@@ -96,6 +96,14 @@ This is used to enforce a consistent import order. The following order has been 
 3. Relative imports (e.g. `../` and `./`)
 
 **Note**: The biggest thing we enforce here is the use of prefixes (either `_` or `~`) for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between the different modules when enforcing the import order.
+
+### [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+
+This is used to auto fix some common inconsistencies. The following rules have been enabled:
+
+- [import/first](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md) - Makes sure all imports are at the top of the file.
+- [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there’s a newline after the imports.
+- [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md) - Merges import statements from the same file.
 
 ## Using With Prettier
 
