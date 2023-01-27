@@ -8,14 +8,23 @@ module.exports = {
     jest: true,
   },
 
-  plugins: ["unused-imports", "simple-import-sort"],
+  plugins: ["unused-imports", "simple-import-sort", "import"],
 
   rules: {
-    // Turn this on to automatically remove unused imports
+    // Remove unused imports
     "unused-imports/no-unused-imports": "error",
 
-    // Turn on exports ordering
+    // Order exports
     "simple-import-sort/exports": "error",
+
+    // Makes sure all imports are at the top of the file
+    "import/first": "error",
+
+    // Makes sure there's a newline after the imports
+    "import/newline-after-import": "error",
+
+    // Merge import statements of the same file
+    "import/no-duplicates": "error",
 
     // Prevent 'console.log(...)' from being committed
     "no-console": ["error", { allow: ["warn", "error"] }],
