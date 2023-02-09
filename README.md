@@ -16,31 +16,32 @@ npm i -D @buildinams/lint
 
 ## Usage
 
-We export three base ESLint configurations for:
+This package export four base [ESLint](https://eslint.org/) and one base [Stylelint](https://stylelint.io/) configuration:
 
 - React.js JavaScript (default)
 - Next.js JavaScript (lint/next)
 - React.js TypeScript (lint/react-typescript)
 - Next.js TypeScript (lint/next-typescript)
+- SCSS with CSS Modules (default)
 
-### @buildinams/lint
+### @buildinams/lint/eslint
 
-This is our default config for all React projects. It extends:
+This is our base config for all React projects. It extends:
 
-- `react/recommended`
-- `react-hooks/recommended`
-- `jsx-a11y/recommended`
-- `prettier/recommended`
+- [react/recommended](https://www.npmjs.com/package/eslint-plugin-react)
+- [react-hooks/recommended](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [jsx-a11y/recommended](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [prettier/recommended](https://www.npmjs.com/package/eslint-config-prettier)
 
 To use the shared eslint configuration, create an `.eslintrc.json` in your root project directory, and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint"
+  "extends": "./node_modules/@buildinams/lint/eslint/react"
 }
 ```
 
-### @buildinams/lint/react-typescript
+### @buildinams/lint/eslint/react-typescript
 
 This extends our base React config with parsing / linting support for TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
 
@@ -48,26 +49,26 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/react-typescript"
+  "extends": "./node_modules/@buildinams/lint/eslint/react-typescript"
 }
 ```
 
-### @buildinams/lint/next
+### @buildinams/lint/eslint/next
 
 This is our base configuration for all Next.js projects. It extends:
 
-- `next`
-- `next/core-web-vitals`
+- [next](https://www.npmjs.com/package/eslint-config-next)
+- [next/core-web-vitals](https://www.npmjs.com/package/@next/eslint-plugin-next)
 
 To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/next"
+  "extends": "./node_modules/@buildinams/lint/eslint/next"
 }
 ```
 
-### @buildinams/lint/next-typescript
+### @buildinams/lint/eslint/next-typescript
 
 This extends our base Next config with parsing / linting support for TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
 
@@ -75,9 +76,44 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/next-typescript"
+  "extends": "./node_modules/@buildinams/lint/eslint/next-typescript"
 }
 ```
+
+### @buildinams/lint/stylelint
+
+This is our base config for all SCSS projects with CSS Modules. It extends:
+
+- [stylelint-config-recommended-scss](https://www.npmjs.com/package/stylelint-config-recommended-scss)
+- [stylelint-config-css-modules](https://www.npmjs.com/package/stylelint-config-css-modules)
+- [stylelint-config-rational-order](https://www.npmjs.com/package/stylelint-config-rational-order)
+- [stylelint-declaration-block-no-ignored-properties](https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties)
+
+For the most part we've tried to simply inherit rules from the above configs, but we've also added a few custom rules:
+
+- [scss/selector-no-redundant-nesting-selector](https://github.com/stylelint-scss/stylelint-scss/blob/master/src/rules/selector-no-redundant-nesting-selector/README.md)
+- [indentation](https://stylelint.io/user-guide/rules/indentation/) - `Tab`. Different developers have different preferences when it comes down to spacing sizes. To make sure everyone can have what they want visually. We've decided to use tabs instead of spaces. This means one developer can have tabs render as `4` spaces and another as `2` spaces without it effecting the codebase.
+
+To use, create a `.stylelintrc.json` and extend the config:
+
+```json
+{
+  "extends": "./node_modules/@buildinams/lint/stylelint"
+}
+```
+
+Lastly, this config also enforces `scss/function-no-unknown` to prevent the use of unknown functions. As you define functions in your project, we recommend you add them to the `ignoreFunctions` array in the config. For example:
+
+```json
+{
+  "extends": "./node_modules/@buildinams/lint/stylelint",
+  "rules": {
+    "scss/function-no-unknown": [true, { "ignoreFunctions": ["px-to-rem"] }]
+  }
+}
+```
+
+This adds some type safety to your SCSS, and prevents you from using functions that don't exist.
 
 ## Rules
 
