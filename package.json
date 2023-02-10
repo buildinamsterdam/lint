@@ -1,16 +1,15 @@
 {
   "name": "@buildinams/lint",
   "description": "BiA's base lint config(s).",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Build in Amsterdam <development@buildinamsterdam.com> (https://www.buildinamsterdam.com/)",
-  "main": "index.js",
   "exports": {
-    ".": "./index.js",
-    "./react": "./react.js",
-    "./react-typescript": "./react-typescript.js",
-    "./next": "./next.js",
-    "./next-typescript": "./next-typescript.js"
+    "./eslint/react": "./eslint/react.js",
+    "./eslint/react-typescript": "./eslint/react-typescript.js",
+    "./eslint/next": "./eslint/next.js",
+    "./eslint/next-typescript": "./eslint/next-typescript.js",
+    "./stylelint": "./stylelint/index.js"
   },
   "homepage": "https://github.com/buildinamsterdam/lint#readme",
   "repository": {
@@ -43,17 +42,23 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
-    "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "@typescript-eslint/parser": "^5.48.2",
-    "eslint": "^8.30.0",
-    "eslint-config-next": "^13.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.33.0",
+    "eslint-config-next": "^13.1.6",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^9.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.4",
+    "stylelint": "^14.16.1",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.6.0",
+    "stylelint-order": "^6.0.2"
   }
 }
