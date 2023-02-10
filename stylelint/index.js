@@ -28,7 +28,7 @@ module.exports = {
     // Prevent redundant nesting selectors
     "scss/selector-no-redundant-nesting-selector": true,
 
-    // Force tab based indentation
+    // Enforce tab based indentation
     indentation: "tab",
   },
 };

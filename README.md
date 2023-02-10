@@ -24,6 +24,8 @@ This package export four base [ESLint](https://eslint.org/) and one base [Stylel
 - Next.js TypeScript (lint/next-typescript)
 - SCSS with CSS Modules (default)
 
+## ESLint
+
 ### @buildinams/lint/eslint
 
 This is our base config for all React projects. It extends:
@@ -80,6 +82,34 @@ To use, create a `.eslintrc.json` and extend the config:
 }
 ```
 
+### Extended ESLint Rules
+
+The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to imports. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way.
+
+#### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
+
+This is used to enforce that all imports are used in the file. This is used to prevent unused imports from being committed to the repo.
+
+#### [eslint-plugin-simple-import-sort](https://www.npmjs.com/package/eslint-plugin-simple-import-sort)
+
+This is used to enforce a consistent import order. The following order has been defined:
+
+1. External modules (e.g. `react`, `next` and `@buildinams/`)
+2. Absolute imports (supports prefix of `_` and `~` e.g. `public/`, `_components` and `~/contexts`)
+3. Relative imports (e.g. `../` and `./`)
+
+**Note**: The biggest thing we enforce here is the use of prefixes (either `_` or `~`) for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between the different modules when enforcing the import order.
+
+#### [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+
+This is used to auto fix some common inconsistencies. The following rules have been enabled:
+
+- [import/first](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md) - Makes sure all imports are at the top of the file.
+- [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there’s a newline after the imports.
+- [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md) - Merges import statements from the same file.
+
+## Stylelint
+
 ### @buildinams/lint/stylelint
 
 This is our base config for all SCSS projects with CSS Modules. It extends:
@@ -92,7 +122,7 @@ This is our base config for all SCSS projects with CSS Modules. It extends:
 For the most part we've tried to simply inherit rules from the above configs, but we've also added a few custom rules:
 
 - [scss/selector-no-redundant-nesting-selector](https://github.com/stylelint-scss/stylelint-scss/blob/master/src/rules/selector-no-redundant-nesting-selector/README.md)
-- [indentation](https://stylelint.io/user-guide/rules/indentation/) - `Tab`. Different developers have different preferences when it comes down to spacing sizes. To make sure everyone can have what they want visually. We've decided to use tabs instead of spaces. This means one developer can have tabs render as `4` spaces and another as `2` spaces without it effecting the codebase.
+- [indentation](https://stylelint.io/user-guide/rules/indentation/) - Enforced `tab` spacings.
 
 To use, create a `.stylelintrc.json` and extend the config:
 
@@ -113,49 +143,51 @@ Lastly, this config also enforces `scss/function-no-unknown` to prevent the use 
 }
 ```
 
-This adds some type safety to your SCSS, and prevents you from using functions that don't exist.
+This adds a level of type safety to your SCSS, and prevents developers from using functions that don't 'exist'.
 
-## Rules
+### Using 'tab' Spacings
 
-The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to imports. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way.
-
-### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
-
-This is used to enforce that all imports are used in the file. This is used to prevent unused imports from being committed to the repo.
-
-### [eslint-plugin-simple-import-sort](https://www.npmjs.com/package/eslint-plugin-simple-import-sort)
-
-This is used to enforce a consistent import order. The following order has been defined:
-
-1. External modules (e.g. `react`, `next` and `@buildinams/`)
-2. Absolute imports (supports prefix of `_` and `~` e.g. `public/`, `_components` and `~/contexts`)
-3. Relative imports (e.g. `../` and `./`)
-
-**Note**: The biggest thing we enforce here is the use of prefixes (either `_` or `~`) for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between the different modules when enforcing the import order.
-
-### [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
-
-This is used to auto fix some common inconsistencies. The following rules have been enabled:
-
-- [import/first](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md) - Makes sure all imports are at the top of the file.
-- [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there’s a newline after the imports.
-- [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md) - Merges import statements from the same file.
+Different developers have different preferences when it comes down to spacing sizes. To make sure everyone can have what they want visually, we've decided to enforce tabs over spaces. This means one developer can have tabs render as `4` spaces and another as `2` spaces without it effecting the codebase.
 
 ## Using With Prettier
 
 As you'll notice, this package doesn't contain any custom `.pretterrc.json` config to extend. We recommend not including it, and instead just inheriting the default config (by not creating / changing it).
 
-## Enabling ESLint on Save in VSCode
+## Enabling Prettier on Save in VSCode
 
-To use ESLint on save, you'll need to install the [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension.
+To use Prettier on save, you'll need to install the following VSCode extensions:
+
+- [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 To then enable format on save in VScode, open your workspace settings (`Shift-Command-P` and select `Open Workspace Settings (JSON)`), then paste the following into `/.vscode/settings.json`:
 
 ```json
 {
   "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
+  }
+}
+```
+
+## Enabling Stylelint on Save in VSCode
+
+To use Stylelint on save, you'll need to install the [stylelint.vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) extension.
+
+To then enable format on save in VScode, open your workspace settings (see above for how to open workspace settings), then paste the following into `/.vscode/settings.json`:
+
+```json
+{
+  "editor.formatOnSave": false,
+  "scss.validate": false,
+  "stylelint.validate": ["scss"],
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
   }
 }
 ```
