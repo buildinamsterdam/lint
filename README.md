@@ -84,7 +84,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ### Extended ESLint Rules
 
-The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to imports. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way.
+The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to the following. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way.
 
 #### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
 
@@ -107,6 +107,10 @@ This is used to auto fix some common inconsistencies. The following rules have b
 - [import/first](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md) - Makes sure all imports are at the top of the file.
 - [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there’s a newline after the imports.
 - [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md) - Merges import statements from the same file.
+
+### Quotes
+
+We enforce the use of "double quotes" when possible. We defined this with the intent of it being applied as a auto-fixable rule to enforce consistency with [prettier](https://prettier.io/docs/en/rationale.html#strings).
 
 ## Stylelint
 
