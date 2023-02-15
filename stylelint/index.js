@@ -19,10 +19,10 @@ module.exports = {
     // Enable plugin
     "plugin/declaration-block-no-ignored-properties": true,
 
-    // Don't include flex properties in the redundant longhand properties rule
+    // Ignore select properties in the redundant longhand properties rule
     "declaration-block-no-redundant-longhand-properties": [
       true,
-      { ignoreShorthands: ["/flex/"] },
+      { ignoreShorthands: ["/flex/", "/grid/"] },
     ],
 
     // Prevent redundant nesting selectors
