@@ -4,4 +4,9 @@
  */
 module.exports = {
   extends: ["plugin:prettier/recommended"],
+
+  rules: {
+    // Force the use of double quotes when possible
+    quotes: ["error", "double"],
+  },
 };
