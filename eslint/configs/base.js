@@ -31,8 +31,5 @@ module.exports = {
 
     // Disallow the use of undeclared variables
     "no-undef": "error",
-
-    // Force the use of double quotes when possible
-    quotes: ["error", "double"],
   },
 };
