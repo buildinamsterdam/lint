@@ -110,11 +110,11 @@ This is used to auto fix some common inconsistencies. The following rules have b
 
 #### [@typescript-eslint/consistent-type-definitions](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
 
-Used to enforce `type` over `interface`, the difference between interface and type is minimal and the one additional feature it supports we shouldn't use.
+Used to enforce `type` over `interface`, [the difference between interface and type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces) is minimal and the one additional feature it supports we shouldn't use.
 
 #### no-restricted-syntax
 
-- `TSEnumDeclaration` - Error when using Enums, let's push for `const X as const` since it's more declarative that it outputs JS. Enums are in a weird in between state that they are both types and constants. This makes them confusing on how to use them and what the output will be.
+- `TSEnumDeclaration` - Error when using Enums, let's push for `const Foo as const` since it's more declarative that it outputs JS. Enums are in a weird in between state that they are both types and constants. This makes them confusing on how to use them and what the output will be.
 
 **Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by Eslint. This is because based on what we need the enum for the corrected approach might differ.
 
