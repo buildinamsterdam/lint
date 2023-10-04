@@ -116,7 +116,7 @@ Used to enforce `type` over `interface`, [the difference between interface and t
 
 - `TSEnumDeclaration` - Error when using Enums, let's push for `const Foo as const` since it's more declarative that it outputs JS. Enums are in a weird in between state that they are both types and constants. This makes them confusing on how to use them and what the output will be.
 
-**Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by Eslint. This is because based on what we need the enum for the corrected approach might differ.
+**Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by Eslint. This is because based on what we need the enum for the 'correct' approach might differ.
 
 ### Quotes
 
