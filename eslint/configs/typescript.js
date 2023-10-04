@@ -10,7 +10,7 @@ module.exports = {
       "error",
       {
         selector: "TSEnumDeclaration",
-        message: "Don't declare enums",
+        message: "Use `const X as const` with `typeof X` over Enums",
       },
     ],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
