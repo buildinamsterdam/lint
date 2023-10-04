@@ -84,7 +84,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ### Extended ESLint Rules
 
-The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to the following. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way.
+The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to the following. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way. With one Typescript exception.
 
 #### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
 
@@ -107,6 +107,16 @@ This is used to auto fix some common inconsistencies. The following rules have b
 - [import/first](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md) - Makes sure all imports are at the top of the file.
 - [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there’s a newline after the imports.
 - [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md) - Merges import statements from the same file.
+
+#### [@typescript-eslint/consistent-type-definitions](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
+
+Used to enforce `type` over `interface`, [the difference between interface and type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces) is minimal and the one additional feature it supports we shouldn't use.
+
+#### no-restricted-syntax
+
+- `TSEnumDeclaration` - Error when using Enums, let's push for `const Foo as const` since it's more declarative that it outputs JS. Enums are in a weird in between state that they are both types and constants. This makes them confusing on how to use them and what the output will be.
+
+**Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by Eslint. This is because based on what we need the enum for the 'correct' approach might differ.
 
 ### Quotes
 
