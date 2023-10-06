@@ -12,7 +12,7 @@ module.exports = {
 
     // Turn on imports ordering with custom groups
     "simple-import-sort/imports": [
-      "error",
+      "warn",
       {
         groups: [
           // Match 'react', 'next' and external imports

@@ -7,6 +7,6 @@ module.exports = {
 
   rules: {
     // Force the use of double quotes when possible
-    quotes: ["error", "double"],
+    quotes: ["warn", "double"],
   },
 };

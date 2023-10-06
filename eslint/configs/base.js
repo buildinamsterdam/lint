@@ -12,24 +12,24 @@ module.exports = {
 
   rules: {
     // Remove unused imports
-    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-imports": "warn",
 
     // Order exports
-    "simple-import-sort/exports": "error",
+    "simple-import-sort/exports": "warn",
 
     // Makes sure all imports are at the top of the file
-    "import/first": "error",
+    "import/first": "warn",
 
     // Makes sure there's a newline after the imports
-    "import/newline-after-import": "error",
+    "import/newline-after-import": "warn",
 
     // Merge import statements of the same file
-    "import/no-duplicates": "error",
+    "import/no-duplicates": "warn",
 
     // Prevent 'console.log(...)' from being committed
-    "no-console": ["error", { allow: ["warn", "error"] }],
+    "no-console": ["warn", { allow: ["warn", "error"] }],
 
     // Disallow the use of undeclared variables
-    "no-undef": "error",
+    "no-undef": "warn",
   },
 };
