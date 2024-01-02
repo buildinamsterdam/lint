@@ -204,7 +204,7 @@ To then enable format on save in VScode, open your workspace settings (`Shift-Co
 	"editor.formatOnSave": false,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": "explicit"
 	}
 }
 ```
@@ -221,7 +221,7 @@ To then enable format on save in VScode, open your workspace settings (see above
 	"scss.validate": false,
 	"stylelint.validate": ["scss"],
 	"editor.codeActionsOnSave": {
-		"source.fixAll.stylelint": true
+		"source.fixAll.stylelint": "explicit"
 	}
 }
 ```
