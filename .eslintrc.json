@@ -1,3 +1,3 @@
 {
-  "extends": "./eslint/react.js"
+	"extends": "./eslint/javascript"
 }

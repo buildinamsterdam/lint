@@ -1,64 +1,65 @@
 {
-  "name": "@buildinams/lint",
-  "description": "BiA's base lint config(s).",
-  "version": "0.3.0",
-  "license": "MIT",
-  "author": "Build in Amsterdam <development@buildinamsterdam.com> (https://www.buildinamsterdam.com/)",
-  "exports": {
-    "./eslint/react": "./eslint/react.js",
-    "./eslint/react-typescript": "./eslint/react-typescript.js",
-    "./eslint/next": "./eslint/next.js",
-    "./eslint/next-typescript": "./eslint/next-typescript.js",
-    "./stylelint": "./stylelint/index.js"
-  },
-  "homepage": "https://github.com/buildinamsterdam/lint#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/buildinamsterdam/lint.git"
-  },
-  "bugs": {
-    "url": "https://github.com/buildinamsterdam/lint/issues"
-  },
-  "keywords": [
-    "bia",
-    "lint",
-    "eslint",
-    "prettier"
-  ],
-  "scripts": {
-    "lint": "NODE_ENV=test npm-run-all --parallel lint:*",
-    "lint:script": "eslint \"**/*.js\"",
-    "lint:format": "prettier \"**/*.{md,yml}\" --check",
-    "fix": "npm-run-all --sequential fix:*",
-    "fix:js": "eslint \"**/*.js\" --fix",
-    "fix:format": "prettier \"**/*.{md,yml}\" --write",
-    "depcheck": "npx npm-check --update"
-  },
-  "peerDependencies": {
-    "react": ">=17.0.0 || 18"
-  },
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
-  },
-  "dependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "@typescript-eslint/eslint-plugin": "^5.51.0",
-    "@typescript-eslint/parser": "^5.51.0",
-    "eslint": "^8.33.0",
-    "eslint-config-next": "^13.1.6",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "prettier": "^2.8.4",
-    "stylelint": "^14.16.1",
-    "stylelint-config-css-modules": "^4.1.0",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard-scss": "^6.1.0",
-    "stylelint-declaration-block-no-ignored-properties": "^2.6.0",
-    "stylelint-order": "^6.0.2"
-  }
+	"name": "@buildinams/lint",
+	"description": "BiA's base lint config(s).",
+	"version": "0.4.0",
+	"license": "MIT",
+	"author": "Build in Amsterdam <development@buildinamsterdam.com> (https://www.buildinamsterdam.com/)",
+	"exports": {
+		"./eslint/javascript": "./eslint/javascript.js",
+		"./eslint/typescript": "./eslint/typescript.js",
+		"./eslint/react": "./eslint/react-javascript.js",
+		"./eslint/react-typescript": "./eslint/react-typescript.js",
+		"./eslint/next": "./eslint/next-javascript.js",
+		"./eslint/next-typescript": "./eslint/next-typescript.js",
+		"./stylelint": "./stylelint/index.js",
+		"./prettier": "./prettier/index.js"
+	},
+	"homepage": "https://github.com/buildinamsterdam/lint#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/buildinamsterdam/lint.git"
+	},
+	"bugs": {
+		"url": "https://github.com/buildinamsterdam/lint/issues"
+	},
+	"keywords": [
+		"bia",
+		"lint",
+		"eslint",
+		"prettier"
+	],
+	"scripts": {
+		"lint": "eslint \"**/*.js\"",
+		"prettier": "prettier --check --ignore-unknown .",
+		"prettier:fix": "prettier --write --ignore-unknown .",
+		"depcheck": "npx npm-check --update"
+	},
+	"peerDependencies": {
+		"react": ">=17.0.0 || 18"
+	},
+	"devDependencies": {
+		"npm-run-all": "^4.1.5"
+	},
+	"dependencies": {
+		"@babel/eslint-parser": "^7.23.3",
+		"@typescript-eslint/eslint-plugin": "^6.17.0",
+		"@typescript-eslint/parser": "^6.17.0",
+		"eslint": "^8.56.0",
+		"eslint-config-next": "^14.0.4",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-prettier": "^5.1.2",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"eslint-plugin-unused-imports": "^3.0.0",
+		"prettier": "^3.1.1",
+		"stylelint": "^16.1.0",
+		"stylelint-config-css-modules": "^4.4.0",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-standard-scss": "^12.0.0",
+		"stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+		"stylelint-order": "^6.0.4",
+		"stylelint-prettier": "^5.0.0"
+	}
 }
