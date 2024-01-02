@@ -3,10 +3,5 @@
  * so that we can define our own. For more info: https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
  */
 module.exports = {
-  extends: ["plugin:prettier/recommended"],
-
-  rules: {
-    // Force the use of double quotes when possible
-    quotes: ["error", "double"],
-  },
+	extends: ["plugin:prettier/recommended"],
 };

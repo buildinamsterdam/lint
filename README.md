@@ -16,13 +16,16 @@ npm i -D @buildinams/lint
 
 ## Usage
 
-This package export four base [ESLint](https://eslint.org/) and one base [Stylelint](https://stylelint.io/) configuration:
+This package export six base [ESLint](https://eslint.org/), one [Prettier](https://prettier.io) and one base [Stylelint](https://stylelint.io/) configuration:
 
-- React.js JavaScript (default)
-- Next.js JavaScript (lint/next)
-- React.js TypeScript (lint/react-typescript)
-- Next.js TypeScript (lint/next-typescript)
-- SCSS with CSS Modules (default)
+- JavaScript (@buildinams/lint/eslint/javascript)
+- Typescript (@buildinams/lint/eslint/typescript)
+- React.js JavaScript (@buildinams/lint/eslint/react)
+- Next.js JavaScript (@buildinams/lint/eslint/next)
+- React.js TypeScript (@buildinams/lint/eslint/react-typscript)
+- Next.js TypeScript (@buildinams/lint/eslint/next-typescript)
+- Base Prettier (@buildinams/lint/prettier)
+- SCSS with CSS Modules (@buildinams/lint/stylelint)
 
 ## ESLint
 
@@ -39,7 +42,7 @@ To use the shared eslint configuration, create an `.eslintrc.json` in your root 
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/eslint/react"
+	"extends": "./node_modules/@buildinams/lint/eslint/react"
 }
 ```
 
@@ -51,7 +54,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/eslint/react-typescript"
+	"extends": "./node_modules/@buildinams/lint/eslint/react-typescript"
 }
 ```
 
@@ -66,7 +69,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/eslint/next"
+	"extends": "./node_modules/@buildinams/lint/eslint/next"
 }
 ```
 
@@ -78,7 +81,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/eslint/next-typescript"
+	"extends": "./node_modules/@buildinams/lint/eslint/next-typescript"
 }
 ```
 
@@ -118,6 +121,16 @@ Used to enforce `type` over `interface`, [the difference between interface and t
 
 **Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by Eslint. This is because based on what we need the enum for the 'correct' approach might differ.
 
+## Prettier
+
+### Trailing comma; "all"
+
+Keeps the trailing comma around wherever possible. Advantages; less changes in Git when adding a row, more flexible when changing the order of entries in; arrays, objects and function arguments. Alternative value: "es5", we have a compile step so we can write "future" JS in our source code without worries.
+
+### Tabs
+
+Tabs over spaces, spaces have a fixed width and tabs can be whatever the developer wants it to be using a custom `tabWidth` value.
+
 ### Quotes
 
 We enforce the use of "double quotes" when possible. We defined this with the intent of it being applied as a auto-fixable rule to enforce consistency with [prettier](https://prettier.io/docs/en/rationale.html#strings).
@@ -142,7 +155,7 @@ To use, create a `.stylelintrc.json` and extend the config:
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/stylelint"
+	"extends": "./node_modules/@buildinams/lint/stylelint"
 }
 ```
 
@@ -150,10 +163,10 @@ Lastly, this config also enforces `scss/function-no-unknown` to prevent the use 
 
 ```json
 {
-  "extends": "./node_modules/@buildinams/lint/stylelint",
-  "rules": {
-    "scss/function-no-unknown": [true, { "ignoreFunctions": ["px-to-rem"] }]
-  }
+	"extends": "./node_modules/@buildinams/lint/stylelint",
+	"rules": {
+		"scss/function-no-unknown": [true, { "ignoreFunctions": ["px-to-rem"] }]
+	}
 }
 ```
 
@@ -178,11 +191,11 @@ To then enable format on save in VScode, open your workspace settings (`Shift-Co
 
 ```json
 {
-  "editor.formatOnSave": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+	"editor.formatOnSave": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
 }
 ```
 
@@ -194,15 +207,15 @@ To then enable format on save in VScode, open your workspace settings (see above
 
 ```json
 {
-  "editor.formatOnSave": false,
-  "scss.validate": false,
-  "stylelint.validate": ["scss"],
-  "[scss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true
-  }
+	"editor.formatOnSave": false,
+	"scss.validate": false,
+	"stylelint.validate": ["scss"],
+	"[scss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	}
 }
 ```
 
