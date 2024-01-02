@@ -42,7 +42,7 @@ To use the shared eslint configuration, create an `.eslintrc.json` in your root 
 
 ```json
 {
-	"extends": "./node_modules/@buildinams/lint/eslint/react"
+	"extends": "./node_modules/@buildinams/lint/eslint/react-javascript"
 }
 ```
 
@@ -69,7 +69,7 @@ To use, create a `.eslintrc.json` and extend the config:
 
 ```json
 {
-	"extends": "./node_modules/@buildinams/lint/eslint/next"
+	"extends": "./node_modules/@buildinams/lint/eslint/next-javascript"
 }
 ```
 
