@@ -1,15 +1,15 @@
 {
 	"name": "@buildinams/lint",
 	"description": "BiA's base lint config(s).",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"license": "MIT",
 	"author": "Build in Amsterdam <development@buildinamsterdam.com> (https://www.buildinamsterdam.com/)",
 	"exports": {
 		"./eslint/javascript": "./eslint/javascript.js",
 		"./eslint/typescript": "./eslint/typescript.js",
-		"./eslint/react": "./eslint/react.js",
+		"./eslint/react": "./eslint/react-javascript.js",
 		"./eslint/react-typescript": "./eslint/react-typescript.js",
-		"./eslint/next": "./eslint/next.js",
+		"./eslint/next": "./eslint/next-javascript.js",
 		"./eslint/next-typescript": "./eslint/next-typescript.js",
 		"./stylelint": "./stylelint/index.js",
 		"./prettier": "./prettier/index.js"
@@ -59,6 +59,7 @@
 		"stylelint-config-rational-order": "^0.1.2",
 		"stylelint-config-standard-scss": "^12.0.0",
 		"stylelint-declaration-block-no-ignored-properties": "^2.8.0",
-		"stylelint-order": "^6.0.4"
+		"stylelint-order": "^6.0.4",
+		"stylelint-prettier": "^5.0.0"
 	}
 }

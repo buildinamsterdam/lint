@@ -13,9 +13,12 @@ module.exports = {
 	plugins: [
 		// Block ignored properties in CSS
 		"stylelint-declaration-block-no-ignored-properties",
+		"stylelint-prettier",
 	],
 
 	rules: {
+		"prettier/prettier": true,
+
 		// Enable plugin
 		"plugin/declaration-block-no-ignored-properties": true,
 
@@ -27,8 +30,5 @@ module.exports = {
 
 		// Prevent redundant nesting selectors
 		"scss/selector-no-redundant-nesting-selector": true,
-
-		// Enforce tab based indentation
-		indentation: "tab",
 	},
 };

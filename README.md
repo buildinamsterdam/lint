@@ -20,8 +20,8 @@ This package export six base [ESLint](https://eslint.org/), one [Prettier](https
 
 - JavaScript (@buildinams/lint/eslint/javascript)
 - Typescript (@buildinams/lint/eslint/typescript)
-- React.js JavaScript (@buildinams/lint/eslint/react)
-- Next.js JavaScript (@buildinams/lint/eslint/next)
+- React.js JavaScript (@buildinams/lint/eslint/react-javascript)
+- Next.js JavaScript (@buildinams/lint/eslint/next-javascript)
 - React.js TypeScript (@buildinams/lint/eslint/react-typscript)
 - Next.js TypeScript (@buildinams/lint/eslint/next-typescript)
 - Base Prettier (@buildinams/lint/prettier)
@@ -123,6 +123,16 @@ Used to enforce `type` over `interface`, [the difference between interface and t
 
 ## Prettier
 
+### @buildinams/lint/prettier
+
+Our base prettier setup, it doesn't have any custom plugins at this point but we do modify two rules, explained below.
+
+To use, create a `.prettierrc.js` in the root of your project and export the config from the package;
+
+```js
+module.exports = require("./node_modules/@buildinams/lint/prettier");
+```
+
 ### Trailing comma; "all"
 
 Keeps the trailing comma around wherever possible. Advantages; less changes in Git when adding a row, more flexible when changing the order of entries in; arrays, objects and function arguments. Alternative value: "es5", we have a compile step so we can write "future" JS in our source code without worries.
@@ -210,9 +220,6 @@ To then enable format on save in VScode, open your workspace settings (see above
 	"editor.formatOnSave": false,
 	"scss.validate": false,
 	"stylelint.validate": ["scss"],
-	"[scss]": {
-		"editor.defaultFormatter": "stylelint.vscode-stylelint"
-	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.stylelint": true
 	}
