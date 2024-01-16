@@ -7,7 +7,7 @@ module.exports = {
 		"stylelint-config-css-modules",
 
 		// Enforce a logical order for CSS properties
-		"stylelint-config-clean-order",
+		"stylelint-config-recess-order",
 	],
 
 	plugins: [
