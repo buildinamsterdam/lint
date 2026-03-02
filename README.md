@@ -6,88 +6,117 @@
 
 BiA's base lint config(s).
 
+## Requirements
+
+- **Node**: >=20.19.0
+- **ESLint**: >=9.0.0
+- **TypeScript**: >=5.1.0 (if using TypeScript configs)
+- **React**: >=17.0.0 (if using React/Next configs)
+- **Prettier**: >=3.0.0 (if using Prettier config)
+
+This package uses ESLint [flat config](https://eslint.org/docs/latest/use/configure/configuration-files). You must use `eslint.config.js` (or `.mjs`/`.cjs`). Legacy `.eslintrc.*` files are not supported.
+
+## Migrating from v0.4.x
+
+v1.0.0 drops ESLint 8 and the legacy eslintrc format. If you're on ESLint 8, pin to `@buildinams/lint@0.4.x`.
+
+To migrate:
+
+1. Update to ESLint 10+ and Node 20+
+2. Delete your `.eslintrc.*` file
+3. Create `eslint.config.js` using the new flat config format (see below)
+
 ## Installation
 
-Install this package with `npm`.
-
 ```bash
-npm i -D @buildinams/lint
+npm i -D @buildinams/lint eslint
 ```
 
 ## Usage
 
-This package export six base [ESLint](https://eslint.org/), one [Prettier](https://prettier.io) and one base [Stylelint](https://stylelint.io/) configuration:
+This package exports six [ESLint](https://eslint.org/) configurations, one [Prettier](https://prettier.io) configuration, and one [Stylelint](https://stylelint.io/) configuration:
 
-- JavaScript (@buildinams/lint/eslint/javascript)
-- Typescript (@buildinams/lint/eslint/typescript)
-- React.js JavaScript (@buildinams/lint/eslint/react-javascript)
-- Next.js JavaScript (@buildinams/lint/eslint/next-javascript)
-- React.js TypeScript (@buildinams/lint/eslint/react-typscript)
-- Next.js TypeScript (@buildinams/lint/eslint/next-typescript)
-- Base Prettier (@buildinams/lint/prettier)
-- SCSS with CSS Modules (@buildinams/lint/stylelint)
+- `@buildinams/lint/eslint/javascript`
+- `@buildinams/lint/eslint/typescript`
+- `@buildinams/lint/eslint/react` (React + JavaScript)
+- `@buildinams/lint/eslint/react-typescript`
+- `@buildinams/lint/eslint/next` (Next.js + JavaScript)
+- `@buildinams/lint/eslint/next-typescript`
+- `@buildinams/lint/prettier`
+- `@buildinams/lint/stylelint`
 
 ## ESLint
 
-### @buildinams/lint/eslint
+All ESLint configs export flat config arrays. Spread them into your `eslint.config.js`:
 
-This is our base config for all React projects. It extends:
+### React + JavaScript
 
-- [react/recommended](https://www.npmjs.com/package/eslint-plugin-react)
-- [react-hooks/recommended](https://www.npmjs.com/package/eslint-plugin-react-hooks)
-- [jsx-a11y/recommended](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
-- [prettier/recommended](https://www.npmjs.com/package/eslint-config-prettier)
+```js
+const reactConfig = require("@buildinams/lint/eslint/react");
 
-To use the shared eslint configuration, create an `.eslintrc.json` in your root project directory, and extend the config:
-
-```json
-{
-	"extends": "./node_modules/@buildinams/lint/eslint/react-javascript"
-}
+module.exports = [...reactConfig];
 ```
 
-### @buildinams/lint/eslint/react-typescript
+### React + TypeScript
 
-This extends our base React config with parsing / linting support for TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+```js
+const reactTsConfig = require("@buildinams/lint/eslint/react-typescript");
 
-To use, create a `.eslintrc.json` and extend the config:
-
-```json
-{
-	"extends": "./node_modules/@buildinams/lint/eslint/react-typescript"
-}
+module.exports = [...reactTsConfig];
 ```
 
-### @buildinams/lint/eslint/next
+### Next.js + JavaScript
 
-This is our base configuration for all Next.js projects. It extends:
+```js
+const nextConfig = require("@buildinams/lint/eslint/next");
 
-- [next](https://www.npmjs.com/package/eslint-config-next)
-- [next/core-web-vitals](https://www.npmjs.com/package/@next/eslint-plugin-next)
-
-To use, create a `.eslintrc.json` and extend the config:
-
-```json
-{
-	"extends": "./node_modules/@buildinams/lint/eslint/next-javascript"
-}
+module.exports = [...nextConfig];
 ```
 
-### @buildinams/lint/eslint/next-typescript
+### Next.js + TypeScript
 
-This extends our base Next config with parsing / linting support for TypeScript from [@typescript-eslint/recommended](https://typescript-eslint.io/linting/configs/#recommended).
+```js
+const nextTsConfig = require("@buildinams/lint/eslint/next-typescript");
 
-To use, create a `.eslintrc.json` and extend the config:
+module.exports = [...nextTsConfig];
+```
 
-```json
-{
-	"extends": "./node_modules/@buildinams/lint/eslint/next-typescript"
-}
+### JavaScript only
+
+```js
+const jsConfig = require("@buildinams/lint/eslint/javascript");
+
+module.exports = [...jsConfig];
+```
+
+### TypeScript only
+
+```js
+const tsConfig = require("@buildinams/lint/eslint/typescript");
+
+module.exports = [...tsConfig];
+```
+
+### Adding custom rules
+
+Since these are flat config arrays, you can append your own config objects:
+
+```js
+const reactTsConfig = require("@buildinams/lint/eslint/react-typescript");
+
+module.exports = [
+	...reactTsConfig,
+	{
+		rules: {
+			"no-console": "warn",
+		},
+	},
+];
 ```
 
 ### Extended ESLint Rules
 
-The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. The main exceptions are when it comes to the following. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way. With one Typescript exception.
+The idea behind this config is to enforce consistency across all projects. We've tried to keep the rules as minimal as possible, and for the most part simply inherit from the recommended rules of the plugins we use. **Note**: We've purposely only defined rules that are auto fixable, these rules should make it easier to write code, and not get in the way. With one TypeScript exception.
 
 #### [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
 
@@ -108,7 +137,7 @@ This is used to enforce a consistent import order. The following order has been 
 This is used to auto fix some common inconsistencies. The following rules have been enabled:
 
 - [import/first](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md) - Makes sure all imports are at the top of the file.
-- [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there’s a newline after the imports.
+- [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md) - Makes sure there's a newline after the imports.
 - [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md) - Merges import statements from the same file.
 
 #### [@typescript-eslint/consistent-type-definitions](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
@@ -119,7 +148,7 @@ Used to enforce `type` over `interface`, [the difference between interface and t
 
 - `TSEnumDeclaration` - Error when using Enums, let's push for `const Foo as const` since it's more declarative that it outputs JS. Enums are in a weird in between state that they are both types and constants. This makes them confusing on how to use them and what the output will be.
 
-**Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by Eslint. This is because based on what we need the enum for the 'correct' approach might differ.
+**Note**: The `TSEnumDeclaration` is our only rule that can't be auto-fixed by ESLint. This is because based on what we need the enum for the 'correct' approach might differ.
 
 ## Prettier
 
@@ -130,7 +159,7 @@ Our base prettier setup, it doesn't have any custom plugins at this point but we
 To use, create a `.prettierrc.js` in the root of your project and export the config from the package;
 
 ```js
-module.exports = require("./node_modules/@buildinams/lint/prettier");
+module.exports = require("@buildinams/lint/prettier");
 ```
 
 ### Trailing comma; "all"
@@ -165,7 +194,7 @@ To use, create a `.stylelintrc.json` and extend the config:
 
 ```json
 {
-	"extends": "./node_modules/@buildinams/lint/stylelint"
+	"extends": "@buildinams/lint/stylelint"
 }
 ```
 
@@ -173,7 +202,7 @@ Lastly, this config also enforces `scss/function-no-unknown` to prevent the use 
 
 ```json
 {
-	"extends": "./node_modules/@buildinams/lint/stylelint",
+	"extends": "@buildinams/lint/stylelint",
 	"rules": {
 		"scss/function-no-unknown": [true, { "ignoreFunctions": ["px-to-rem"] }]
 	}
@@ -225,10 +254,6 @@ To then enable format on save in VScode, open your workspace settings (see above
 	}
 }
 ```
-
-## Requirements
-
-This library requires a minimum React version of `17.0.0`.
 
 ## Requests and Contributing
 

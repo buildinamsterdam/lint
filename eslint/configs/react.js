@@ -1,48 +1,40 @@
-module.exports = {
-	// Hide warnings about missing React version not being specified
-	settings: {
-		react: {
-			version: "detect",
+const reactPlugin = require("eslint-plugin-react");
+const reactHooks = require("eslint-plugin-react-hooks");
+const jsxA11y = require("eslint-plugin-jsx-a11y");
+
+module.exports = [
+	// Register .jsx so ESLint processes these files
+	{ files: ["**/*.jsx"] },
+	reactPlugin.configs.flat.recommended,
+	reactPlugin.configs.flat["jsx-runtime"],
+	reactHooks.configs["recommended-latest"],
+	jsxA11y.flatConfigs.recommended,
+	{
+		// Fixed version avoids eslint-plugin-react's broken auto-detection
+		// on ESLint 10 (getFilename removed). Override in your config if needed.
+		settings: {
+			react: {
+				version: "18",
+			},
+		},
+
+		rules: {
+			// Prevent 'forwardRef' from erroring
+			"react/display-name": "off",
+			// Turn on imports ordering with custom groups
+			"simple-import-sort/imports": [
+				"error",
+				{
+					groups: [
+						// Match 'react' and external imports
+						["^react", "^@?\\w"],
+						// Match 'public' and all absolute imports that begin with '_' or '~'
+						["^public", "[_~].*"],
+						// Match all relative imports that begin with '.'
+						["^\\."],
+					],
+				},
+			],
 		},
 	},
-
-	// Required to get React.js to work with these configs
-	parserOptions: {
-		ecmaVersion: "latest",
-		sourceType: "module",
-	},
-
-	extends: [
-		// Full list: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/configs/recommended.js
-		"plugin:react/recommended",
-
-		// For more info: https://www.npmjs.com/package/eslint-plugin-react-hooks
-		"plugin:react-hooks/recommended",
-
-		// Full list: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js
-		"plugin:jsx-a11y/recommended",
-	],
-
-	rules: {
-		// Prevent 'forwardRef' from erroring
-		"react/display-name": "off",
-
-		// Suppress missing 'import React' in files error
-		"react/react-in-jsx-scope": "off",
-
-		// Turn on imports ordering with custom groups
-		"simple-import-sort/imports": [
-			"error",
-			{
-				groups: [
-					// Match 'react' and external imports
-					["^react", "^@?\\w"],
-					// Match 'public' and all absolute imports that begin with '_' or '~'
-					["^public", "[_~].*"],
-					// Match all relative imports that begin with '.'
-					["^\\."],
-				],
-			},
-		],
-	},
-};
+];
