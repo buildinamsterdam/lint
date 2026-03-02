@@ -5,14 +5,38 @@
 	"license": "MIT",
 	"author": "Build in Amsterdam <development@buildinamsterdam.com> (https://www.buildinamsterdam.com/)",
 	"exports": {
-		"./eslint/javascript": "./eslint/javascript.js",
-		"./eslint/typescript": "./eslint/typescript.js",
-		"./eslint/react": "./eslint/react-javascript.js",
-		"./eslint/react-typescript": "./eslint/react-typescript.js",
-		"./eslint/next": "./eslint/next-javascript.js",
-		"./eslint/next-typescript": "./eslint/next-typescript.js",
-		"./stylelint": "./stylelint/index.js",
-		"./prettier": "./prettier/index.js"
+		"./eslint/javascript": {
+			"import": "./eslint/javascript.mjs",
+			"require": "./eslint/javascript.js"
+		},
+		"./eslint/typescript": {
+			"import": "./eslint/typescript.mjs",
+			"require": "./eslint/typescript.js"
+		},
+		"./eslint/react": {
+			"import": "./eslint/react-javascript.mjs",
+			"require": "./eslint/react-javascript.js"
+		},
+		"./eslint/react-typescript": {
+			"import": "./eslint/react-typescript.mjs",
+			"require": "./eslint/react-typescript.js"
+		},
+		"./eslint/next": {
+			"import": "./eslint/next-javascript.mjs",
+			"require": "./eslint/next-javascript.js"
+		},
+		"./eslint/next-typescript": {
+			"import": "./eslint/next-typescript.mjs",
+			"require": "./eslint/next-typescript.js"
+		},
+		"./stylelint": {
+			"import": "./stylelint/index.mjs",
+			"require": "./stylelint/index.js"
+		},
+		"./prettier": {
+			"import": "./prettier/index.mjs",
+			"require": "./prettier/index.js"
+		}
 	},
 	"homepage": "https://github.com/buildinamsterdam/lint#readme",
 	"repository": {
