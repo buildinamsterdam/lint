@@ -14,4 +14,10 @@ module.exports = [
 			"@typescript-eslint/consistent-type-definitions": ["error", "type"],
 		},
 	},
+	{
+		// TS compiler handles undefined variables — no-undef false-positives
+		// on global types (JSX.Element, NodeJS.Timeout, etc.)
+		files: ["**/*.{ts,tsx,mts,cts}"],
+		rules: { "no-undef": "off" },
+	},
 ];
