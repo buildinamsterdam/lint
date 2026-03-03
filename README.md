@@ -62,6 +62,15 @@ unused-imports, simple-import-sort, [import-x](https://github.com/un-ts/eslint-p
 - **`type` over `interface`** via `consistent-type-definitions`
 - **No enums** — use `as const` instead (only non-auto-fixable rule)
 - **No `console.log`** — `warn` and `error` allowed
+- **React version** defaults to `19`. Override for older versions:
+
+```js
+// eslint.config.mjs
+export default [
+	...config,
+	{ settings: { react: { version: "18" } } },
+];
+```
 
 ## Prettier
 
