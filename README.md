@@ -22,7 +22,7 @@ v1.0.0 drops ESLint 8 and the legacy eslintrc format. If you're on ESLint 8, pin
 
 To migrate:
 
-1. Update to ESLint 10+ and Node 20+
+1. Update to ESLint 9+ and Node 20+
 2. Delete your `.eslintrc.*` file
 3. Create `eslint.config.js` using the new flat config format (see below)
 
@@ -47,7 +47,13 @@ This package exports six [ESLint](https://eslint.org/) configurations, one [Pret
 
 ## ESLint
 
-All ESLint configs export flat config arrays. Spread them into your `eslint.config.js`:
+All ESLint configs export flat config arrays. Spread them into your `eslint.config.js` (CJS) or `eslint.config.mjs` (ESM):
+
+```js
+// eslint.config.mjs (ESM)
+import nextTsConfig from "@buildinams/lint/eslint/next-typescript";
+export default [...nextTsConfig];
+```
 
 ### React + JavaScript
 
@@ -132,7 +138,7 @@ This is used to enforce a consistent import order. The following order has been 
 
 **Note**: The biggest thing we enforce here is the use of prefixes (either `_` or `~`) for absolute imports. This is to make it clear that these are not external modules, and to make it easier to distinguish between the different modules when enforcing the import order.
 
-#### [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+#### [eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)
 
 This is used to auto fix some common inconsistencies. The following rules have been enabled:
 

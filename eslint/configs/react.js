@@ -14,7 +14,7 @@ module.exports = [
 		// on ESLint 10 (getFilename removed). Override in your config if needed.
 		settings: {
 			react: {
-				version: "18",
+				version: "19",
 			},
 		},
 
