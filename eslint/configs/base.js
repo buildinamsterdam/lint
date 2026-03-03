@@ -1,7 +1,7 @@
 const globals = require("globals");
 const unusedImports = require("eslint-plugin-unused-imports");
 const simpleImportSort = require("eslint-plugin-simple-import-sort");
-const importPlugin = require("eslint-plugin-import");
+const importPlugin = require("eslint-plugin-import-x");
 
 module.exports = [
 	{
