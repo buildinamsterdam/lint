@@ -9,12 +9,16 @@ module.exports = [
 				"error",
 				{
 					groups: [
-						// Match 'react', 'next' and external imports
+						// Side-effect imports (e.g. "server-only", polyfills)
+						["^\\u0000(?!.*\\.s?css$)"],
+						// React, Next, then external packages
 						["^react", "^next", "^@?\\w"],
-						// Match 'public' and all absolute imports that begin with '_' or '~'
+						// Absolute aliases (public, _, ~)
 						["^public", "[_~].*"],
-						// Match all relative imports that begin with '.'
-						["^\\."],
+						// Relative imports (excluding styles)
+						["^\\.(?!.*\\.s?css$)"],
+						// Style imports (both side-effect and with specifiers)
+						["\\.s?css$"],
 					],
 				},
 			],
