@@ -1,7 +1,7 @@
 {
 	"name": "@buildinams/lint",
 	"description": "BiA's base lint config(s).",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"author": "Build in Amsterdam <development@buildinamsterdam.com> (https://www.buildinamsterdam.com/)",
 	"exports": {
