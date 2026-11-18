@@ -18,6 +18,16 @@ npm ci
 
 Then implement your changes!
 
+## Testing
+
+Every exported config (ESLint, Prettier, Stylelint) is smoke-tested in [test/configs.test.js](test/configs.test.js). Each config is loaded through the package's `exports` map and run on small inline code samples, checking that clean code passes and the expected rules fire:
+
+```bash
+npm test
+```
+
+If you add, remove or change a rule, update the matching test. CI runs the tests on Node 20, 22 and 24, against both ESLint 9 and 10.
+
 ## Submitting changes
 
 Please open a pull request with a clear overview of what you've changed. When you send a pull request, please make sure you've covered off all the points in the predefined template, and any other relevant information.
