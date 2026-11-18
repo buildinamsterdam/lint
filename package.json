@@ -38,6 +38,11 @@
 			"require": "./prettier/index.js"
 		}
 	},
+	"files": [
+		"eslint",
+		"prettier",
+		"stylelint"
+	],
 	"homepage": "https://github.com/buildinamsterdam/lint#readme",
 	"repository": {
 		"type": "git",
@@ -65,7 +70,7 @@
 	"peerDependencies": {
 		"eslint": ">=9.0.0 <11",
 		"prettier": ">=3.0.0",
-		"react": ">=17.0.0 || 18 || 19",
+		"react": ">=17.0.0",
 		"stylelint": ">=16.0.0",
 		"typescript": ">=5.1.0"
 	},
@@ -85,7 +90,6 @@
 	},
 	"devDependencies": {
 		"eslint": "^9.0.0",
-		"npm-run-all": "^4.1.5",
 		"stylelint": "^16.0.0",
 		"typescript": "^5.9.3"
 	},
