@@ -25,6 +25,11 @@ module.exports = [
 			// Remove unused imports
 			"unused-imports/no-unused-imports": "error",
 
+			// Prevent unused variables. Wraps `no-unused-vars` (the typescript-eslint
+			// version when available, so type-only code is handled), but skips
+			// imports so they're only reported once, by the rule above
+			"unused-imports/no-unused-vars": "error",
+
 			// Order exports
 			"simple-import-sort/exports": "error",
 

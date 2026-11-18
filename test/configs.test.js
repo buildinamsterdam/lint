@@ -9,6 +9,8 @@
  */
 const { describe, test } = require("node:test");
 const assert = require("node:assert/strict");
+const { execFileSync } = require("node:child_process");
+const os = require("node:os");
 const path = require("node:path");
 const { ESLint } = require("eslint");
 
@@ -80,6 +82,20 @@ const   spaced = 1;
 export default spaced;
 `;
 
+// One of each kind of unused binding; the import must be reported only once
+const UNUSED_VARS = `import { a, unusedImport } from "./a";
+
+const unusedVar = 1;
+
+export function f(used, unusedArg) {
+	try {
+		return a(used);
+	} catch (err) {
+		return null;
+	}
+}
+`;
+
 // Out-of-order imports, used to check `simple-import-sort/imports`
 const UNSORTED_IMPORTS = `import { b } from "./b";
 import { join } from "node:path";
@@ -118,6 +134,19 @@ describe("eslint configs", () => {
 				]);
 			});
 
+			test("reports each unused variable once", async () => {
+				const messages = await lint(load(), UNUSED_VARS, `unused.${ext}`);
+				const unused = messages
+					.filter((m) => m.ruleId?.startsWith("unused-imports/"))
+					.map((m) => `${m.line}:${m.column} ${m.ruleId}`);
+				assert.deepEqual(unused, [
+					"1:13 unused-imports/no-unused-imports",
+					"3:7 unused-imports/no-unused-vars",
+					"5:25 unused-imports/no-unused-vars",
+					"8:11 unused-imports/no-unused-vars",
+				]);
+			});
+
 			// TS configs leave this to the compiler
 			if (!isTs(name)) {
 				test("reports undefined variables", async () => {
@@ -152,6 +181,18 @@ describe("eslint configs", () => {
 						"@typescript-eslint/consistent-type-definitions",
 						"no-restricted-syntax",
 					]);
+				});
+
+				test("reports unused types and type parameters", async () => {
+					const messages = await lint(
+						load(),
+						`type Unused = string;\n\nexport const id = <T, U>(x: T): T => x;\n`,
+						"unused-types.ts",
+					);
+					const unused = messages
+						.filter((m) => m.ruleId === "unused-imports/no-unused-vars")
+						.map((m) => `${m.line}:${m.column}`);
+					assert.deepEqual(unused, ["1:6", "3:23"]);
 				});
 
 				test("does not report global types as undefined", async () => {
@@ -206,6 +247,42 @@ export const List = ({ ok, items }) => {
 			}
 		});
 	}
+});
+
+describe("npm package", () => {
+	test("only ships the configs and every exported file", () => {
+		const output = execFileSync(
+			"npm",
+			[
+				"pack",
+				"--dry-run",
+				"--json",
+				"--ignore-scripts",
+				// Avoids failures from a broken or read-only global npm cache
+				"--cache",
+				path.join(os.tmpdir(), "buildinams-lint-npm-cache"),
+			],
+			{ cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+		);
+		// npm 10 returns an array of packs, npm 11 an object keyed by name
+		const json = JSON.parse(output);
+		const [pack] = Array.isArray(json) ? json : Object.values(json);
+		const files = pack.files.map((f) => f.path);
+
+		const unexpected = files.filter(
+			(file) =>
+				!/^(eslint|prettier|stylelint)\//.test(file) &&
+				!["LICENSE", "README.md", "package.json"].includes(file),
+		);
+		assert.deepEqual(unexpected, []);
+
+		const { exports } = require("../package.json");
+		const exported = Object.values(exports).flatMap((entry) =>
+			Object.values(entry).map((file) => file.replace(/^\.\//, "")),
+		);
+		const missing = exported.filter((file) => !files.includes(file));
+		assert.deepEqual(missing, []);
+	});
 });
 
 describe("prettier config", () => {

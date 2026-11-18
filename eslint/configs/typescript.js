@@ -12,6 +12,8 @@ module.exports = [
 				},
 			],
 			"@typescript-eslint/consistent-type-definitions": ["error", "type"],
+			// Replaced by `unused-imports/no-unused-vars` in the base config
+			"@typescript-eslint/no-unused-vars": "off",
 		},
 	},
 	{

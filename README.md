@@ -23,24 +23,21 @@ Drop `prettier` and/or `stylelint` if you don't need them.
 
 ## ESLint
 
-| Config | Export path |
-|---|---|
-| JavaScript | `@buildinams/lint/eslint/javascript` |
-| TypeScript | `@buildinams/lint/eslint/typescript` |
-| React | `@buildinams/lint/eslint/react` |
-| React + TypeScript | `@buildinams/lint/eslint/react-typescript` |
-| Next.js | `@buildinams/lint/eslint/next` |
-| Next.js + TypeScript | `@buildinams/lint/eslint/next-typescript` |
+| Config               | Export path                                |
+| -------------------- | ------------------------------------------ |
+| JavaScript           | `@buildinams/lint/eslint/javascript`       |
+| TypeScript           | `@buildinams/lint/eslint/typescript`       |
+| React                | `@buildinams/lint/eslint/react`            |
+| React + TypeScript   | `@buildinams/lint/eslint/react-typescript` |
+| Next.js              | `@buildinams/lint/eslint/next`             |
+| Next.js + TypeScript | `@buildinams/lint/eslint/next-typescript`  |
 
 ```js
 // eslint.config.mjs
 import config from "@buildinams/lint/eslint/next-typescript";
 import { globalIgnores } from "eslint/config";
 
-export default [
-	...config,
-	globalIgnores([".next/**", "out/**", "build/**"]),
-];
+export default [...config, globalIgnores([".next/**", "out/**", "build/**"])];
 ```
 
 <details>
@@ -50,6 +47,7 @@ export default [
 // eslint.config.js
 module.exports = [...require("@buildinams/lint/eslint/next-typescript")];
 ```
+
 </details>
 
 ### Bundled plugins
@@ -66,10 +64,7 @@ unused-imports, simple-import-sort, [import-x](https://github.com/un-ts/eslint-p
 
 ```js
 // eslint.config.mjs
-export default [
-	...config,
-	{ settings: { react: { version: "18" } } },
-];
+export default [...config, { settings: { react: { version: "18" } } }];
 ```
 
 ## Prettier
@@ -105,6 +100,7 @@ Extends: [standard-scss](https://www.npmjs.com/package/stylelint-config-standard
 	}
 }
 ```
+
 </details>
 
 ## VSCode
